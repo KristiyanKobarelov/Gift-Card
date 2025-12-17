@@ -1,15 +1,17 @@
 import gspread
+from Functions.check_existing import check_existing_code
+from datetime import datetime
 
-def add_gift_card(sheet, code, dop, amount, name, description):
+def add_gift_card(sheet, code, amount, name, description):
     code = str(code).strip()
 
     # Get all existing codes from column A (skip header if you have one)
-    existing_codes = [c.strip() for c in sheet.col_values(1)]  # column A
-
-    if code in existing_codes:
+    if check_existing_code(sheet, code):
         print(f"❌ Gift card with code '{code}' already exists.")
         return
     
-    sheet.append_row([code, dop, amount, name, description], value_input_option='USER_ENTERED')
+    date = datetime.now().strftime("%d.%m.%Y")
+
+    sheet.append_row([code, date, amount, name, description], value_input_option='USER_ENTERED')
 
     print(f"Gift card {code} added successfully.")

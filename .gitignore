@@ -141,3 +141,6 @@ service_account.json
 *.tmp
 *.bak
 *.swp
+
+
+*.pyc
