@@ -144,3 +144,6 @@ service_account.json
 
 
 *.pyc
+
+LICENSE.txt
+README.md
