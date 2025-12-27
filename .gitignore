@@ -146,4 +146,5 @@ service_account.json
 *.pyc
 
 LICENSE.txt
+LICENSE
 README.md

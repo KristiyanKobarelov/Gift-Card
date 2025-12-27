@@ -6,4 +6,17 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name("credentials.json
 
 client = gspread.authorize(credentials)
 
-sheet = client.open("Gift-Card-Test").sheet1 # Change after given
+spreadsheet = client.open("Gift-Card-Test")  # Change after given
+
+# Pick the specific worksheet (tab) you want to use.
+# IMPORTANT: the name must match the tab name in Google Sheets EXACTLY (including spaces/case).
+WORKSHEET_NAME = "Gift-Cards"
+
+try:
+    sheet = spreadsheet.worksheet(WORKSHEET_NAME)
+except gspread.WorksheetNotFound:
+    # Helpful debug: show available worksheet/tab names so you can copy-paste the right one.
+    available = [ws.title for ws in spreadsheet.worksheets()]
+    raise gspread.WorksheetNotFound(
+        f"Worksheet '{WORKSHEET_NAME}' not found. Available worksheets: {available}"
+    )

@@ -1,9 +1,12 @@
 from Functions.add import add_gift_card
 from setup import sheet
+from setup import spreadsheet
 from Functions.remove import remove_gift_card, gift_card_used
 from Functions.code_generator import create_code
 
+
 def main():
+    print("[DEBUG] Available tabs:", [ws.title for ws in spreadsheet.worksheets()])
     firstname = input("Enter first name: ")
     lastname = input("Enter last name: ")
     amount = int(input("Enter amount: "))
