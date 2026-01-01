@@ -1,0 +1,6 @@
+TO DO:
+- UI
+- Check if the gift card is active
+
+In Progress:
+- Print informartion about a gift card
