@@ -21,7 +21,7 @@ def gift_card_used(sheet, gift_card_code):
 
         today = datetime.today()
         formatted_date = today.strftime("%d.%m.%Y")
-        sheet.update_cell(row_index, 6, formatted_date)
+        sheet.update_cell(row_index, 5, formatted_date)
         print(f"Marked gift card with code {gift_card_code} as USED.")
     else:
         print(f"Gift card with code {gift_card_code} not found.")

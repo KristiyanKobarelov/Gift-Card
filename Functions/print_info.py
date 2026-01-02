@@ -11,7 +11,7 @@ def print_info(sheet, code):
         name = sheet.cell(row_index, 4).value
         status = sheet.cell(row_index, 5).value
 
-        if not cell.value:
+        if cell.value:
             status = f"USED on {status}"
         else:
             status = "ACTIVE"
