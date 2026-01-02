@@ -9,10 +9,12 @@ def print_info(sheet, code):
         date_added = sheet.cell(row_index, 2).value
         amount = sheet.cell(row_index, 3).value
         name = sheet.cell(row_index, 4).value
-        status = sheet.cell(row_index, 5).value
 
-        if cell.value:
-            status = f"USED on {status}"
+        status_value = sheet.cell(row_index, 5).value
+
+        # If the status cell has a date/value -> USED, otherwise -> ACTIVE
+        if status_value is not None and str(status_value).strip() != "":
+            status = f"USED on {status_value}"
         else:
             status = "ACTIVE"
 
